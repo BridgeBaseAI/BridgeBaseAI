@@ -9,7 +9,7 @@
 - Zero-cost deployment via GitHub Pages
 
 ## 🚀 Try It Live
-👉 https://yourusername.github.io/BridgeBaseAI/
+👉 https://BridgeBaseai.github.io/BridgeBaseAI/
 
 ## 🔧 Tech Stack
 - HTML + CSS + JS (Vanilla)
@@ -26,5 +26,5 @@
 
 ## 📢 Built With No Money. Just Vision + AI.
 
-This project is created by [@yourhandle](https://twitter.com/yourhandle) as a bet to prove that **AI can co-found real infrastructure projects** without VC funding or team.
+This project is created by [@huzaiii_founder](https://x.com/BridgeBaseAI) as a bet to prove that **AI can co-found real infrastructure projects** without VC funding or team.
 
