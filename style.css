@@ -1,34 +1,84 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #0f0f0f;
-  color: #f3f3f3;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  color: #e2e8f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #1e293b;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
   text-align: center;
-  padding: 40px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
 }
 
 input {
-  width: 300px;
-  padding: 10px;
-  border-radius: 6px;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 8px;
   border: none;
-  font-size: 16px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #00ffae;
-  color: #000;
-  font-weight: bold;
+  padding: 0.75rem 1rem;
+  background-color: #3b82f6;
+  color: white;
   border: none;
-  border-radius: 6px;
-  margin-left: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
+  width: 100%;
 }
 
-textarea {
-  margin-top: 15px;
-  width: 80%;
-  padding: 10px;
-  border-radius: 6px;
-  font-size: 14px;
+button:hover {
+  background-color: #2563eb;
+}
+
+.examples {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.examples button {
+  background-color: #334155;
+  color: #e2e8f0;
+  margin: 0.25rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.output {
+  margin-top: 2rem;
+  background-color: #0f172a;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #a5f3fc;
+  text-align: left;
+}
+
+footer {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  color: #64748b;
 }
