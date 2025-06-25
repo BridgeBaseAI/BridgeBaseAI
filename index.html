@@ -1,38 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta property="og:title" content="BridgeBaseAI - Web3 Trust Engine" />
-<meta property="og:description" content="Enter a wallet or GitHub username. GPT will generate a trust score with an explanation. 100% open-source, built with no funding." />
-<meta property="og:url" content="https://bridgebaseai.github.io/BridgeBaseAI/" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://yourdomain.com/yourimage.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="BridgeBaseAI - AI Web3 Trust Engine" />
-<meta name="twitter:description" content="GPT-powered trust scoring tool for wallets & devs. Built solo with $0. Try it now." />
-<meta name="twitter:image" content="https://yourdomain.com/yourimage.png" />
-<meta name="description" content="BridgeBaseAI is a free, GPT-powered trust scoring tool for Web3 wallets and GitHub developers. Built solo with no funding.">
-<meta name="keywords" content="Web3, AI, GPT, Trust Engine, GitHub analysis, wallet reputation, smart contract trust, bridgebaseai">
-<meta name="author" content="huzaiii (@huzaiii_founder)">
-
-  <meta charset="UTF-8">
-  <meta name="author" content="huzaiii (@huzaiii_founder)">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BridgeBaseAI - Web3 Trust Engine</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- SEO + OG Tags -->
+  <meta name="description" content="BridgeBaseAI is a GPT-powered Web3 trust engine for wallets and developers. Built solo, no funding.">
+  <meta name="keywords" content="Web3, AI, GPT, Trust Score, GitHub Wallet Reputation, BridgeBaseAI">
+  <meta name="author" content="huzaiii (@huzaiii_founder)">
+  <meta property="og:title" content="BridgeBaseAI - Web3 Trust Engine">
+  <meta property="og:description" content="Paste a GitHub username or wallet address. GPT will analyze and score trustworthiness.">
+  <meta property="og:url" content="https://bridgebaseai.github.io/BridgeBaseAI/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BridgeBaseAI - AI Web3 Trust Engine">
+  <meta name="twitter:description" content="GPT-powered trust scoring tool for wallets & devs. Built solo with $0. Try it now.">
+
+  <!-- Font + External CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-  <footer style="margin-top: 40px; color: #888; font-size: 14px;">
-  🛠️ Built by <strong>@huzaiii_founder</strong> · Open-sourced on GitHub · Wallet & Identity secured on-chain soon.
-</footer>
-
 <body>
-  <h1>BridgeBaseAI – Trust Engine v0.1</h1>
-  <p>Enter a wallet address (0x...) or GitHub username:</p>
+  <div class="container">
+    <h1>BridgeBaseAI 🧠</h1>
+    <p>Enter a GitHub username or wallet address to get a trust score powered by GPT.</p>
 
-  <input id="userInput" type="text" placeholder="Enter wallet or GitHub">
-  <button onclick="analyzeInput()">Analyze</button>
+    <input type="text" id="userInput" placeholder="e.g., vbuterin or 0x1234..." />
 
-  <div id="outputBox" style="margin-top: 20px;"></div>
+    <button onclick="generatePrompt()">Run Trust Scan</button>
 
-  <script src="trustengine.js"></script>
-  <script src="app.js"></script>
+    <div class="examples">
+      <p>Try with:</p>
+      <button onclick="setExample('vbuterin')">vbuterin</button>
+      <button onclick="setExample('0x742d35Cc6634C0532925a3b844Bc454e4438f44e')">0x742d...</button>
+    </div>
+
+    <div class="output" id="output">
+      <strong>Trust Score:</strong> —<br />
+      <em>"Paste input and run GPT prompt to get analysis."</em>
+    </div>
+
+    <div class="prompt" id="promptBox" style="margin-top:1rem; font-size:0.85rem;"></div>
+
+    <footer>
+      Built with $0, passion, and GPT by @huzaiii_founder ✊<br/>
+      Open source. Feedback welcome.
+    </footer>
+  </div>
+
+  <!-- JavaScript Logic -->
+  <script>
+    function setExample(value) {
+      document.getElementById('userInput').value = value;
+    }
+
+    function generatePrompt() {
+      const input = document.getElementById('userInput').value.trim();
+      if (!input) {
+        alert("Please enter a GitHub username or wallet address.");
+        return;
+      }
+
+      let prompt = "";
+      if (input.startsWith("0x")) {
+        prompt = `You are an AI assistant analyzing onchain wallet reputation.\n\nWallet Address: ${input}\n\nStep 1: Analyze wallet age, transaction history, token behavior, red flags, and DeFi usage.\nStep 2: Score the trustworthiness from 0–100.\nStep 3: Output a 3-sentence summary.\n\nEnd with: "Would you trust this wallet in a smart contract deal?"`;
+      } else {
+        prompt = `You are an AI assistant analyzing open-source developer reputation.\n\nGitHub Username: ${input}\n\nStep 1: Look at number of public repos, stars, recent commits, contribution activity, followers, and project types.\nStep 2: Estimate overall dev experience and professionalism.\nStep 3: Assign a trust score from 0 to 100.\nStep 4: Output a 3-sentence summary in plain English explaining the score.\n\nEnd with: "Would you trust this dev to contribute to your smart contract project?"`;
+      }
+
+      document.getElementById('output').innerHTML = `
+        <strong>Trust Score:</strong> —<br />
+        <em>Run this prompt in ChatGPT to receive your AI analysis.</em>
+      `;
+
+      document.getElementById('promptBox').innerHTML = `
+        <strong>GPT Prompt:</strong><br/>
+        <textarea rows="6" style="width:100%;margin-top:0.5rem;">${prompt}</textarea>
+      `;
+    }
+  </script>
 </body>
 </html>
