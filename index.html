@@ -17,68 +17,37 @@
   <meta name="twitter:title" content="BridgeBaseAI - AI Web3 Trust Engine">
   <meta name="twitter:description" content="GPT-powered trust scoring tool for wallets & devs. Built solo with $0. Try it now.">
 
-  <!-- Font + External CSS -->
+  <!-- Fonts + Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <h1>BridgeBaseAI 🧠</h1>
-    <p>Enter a GitHub username or wallet address to get a trust score powered by GPT.</p>
+    <p>GPT-powered Web3 trust scanner. Paste a GitHub username or wallet address.</p>
 
     <input type="text" id="userInput" placeholder="e.g., vbuterin or 0x1234..." />
-
     <button onclick="generatePrompt()">Run Trust Scan</button>
 
     <div class="examples">
-      <p>Try with:</p>
+      <p>Examples:</p>
       <button onclick="setExample('vbuterin')">vbuterin</button>
       <button onclick="setExample('0x742d35Cc6634C0532925a3b844Bc454e4438f44e')">0x742d...</button>
     </div>
 
     <div class="output" id="output">
       <strong>Trust Score:</strong> —<br />
-      <em>"Paste input and run GPT prompt to get analysis."</em>
+      <em>Paste into ChatGPT to generate your analysis.</em>
     </div>
 
-    <div class="prompt" id="promptBox" style="margin-top:1rem; font-size:0.85rem;"></div>
+    <div class="prompt" id="promptBox" style="margin-top:1rem;"></div>
 
     <footer>
-      Built with $0, passion, and GPT by @huzaiii_founder ✊<br/>
-      Open source. Feedback welcome.
+      Built with 💻 + ☕ by @huzaiii_founder • 100% open source • Feedback welcome
     </footer>
   </div>
 
-  <!-- JavaScript Logic -->
-  <script>
-    function setExample(value) {
-      document.getElementById('userInput').value = value;
-    }
-
-    function generatePrompt() {
-      const input = document.getElementById('userInput').value.trim();
-      if (!input) {
-        alert("Please enter a GitHub username or wallet address.");
-        return;
-      }
-
-      let prompt = "";
-      if (input.startsWith("0x")) {
-        prompt = `You are an AI assistant analyzing onchain wallet reputation.\n\nWallet Address: ${input}\n\nStep 1: Analyze wallet age, transaction history, token behavior, red flags, and DeFi usage.\nStep 2: Score the trustworthiness from 0–100.\nStep 3: Output a 3-sentence summary.\n\nEnd with: "Would you trust this wallet in a smart contract deal?"`;
-      } else {
-        prompt = `You are an AI assistant analyzing open-source developer reputation.\n\nGitHub Username: ${input}\n\nStep 1: Look at number of public repos, stars, recent commits, contribution activity, followers, and project types.\nStep 2: Estimate overall dev experience and professionalism.\nStep 3: Assign a trust score from 0 to 100.\nStep 4: Output a 3-sentence summary in plain English explaining the score.\n\nEnd with: "Would you trust this dev to contribute to your smart contract project?"`;
-      }
-
-      document.getElementById('output').innerHTML = `
-        <strong>Trust Score:</strong> —<br />
-        <em>Run this prompt in ChatGPT to receive your AI analysis.</em>
-      `;
-
-      document.getElementById('promptBox').innerHTML = `
-        <strong>GPT Prompt:</strong><br/>
-        <textarea rows="6" style="width:100%;margin-top:0.5rem;">${prompt}</textarea>
-      `;
-    }
-  </script>
+  <!-- JS Logic -->
+  <script src="trustengine.js"></script>
 </body>
 </html>
