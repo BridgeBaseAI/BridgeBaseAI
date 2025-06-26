@@ -17,41 +17,44 @@
   <meta name="twitter:title" content="BridgeBaseAI - AI Web3 Trust Engine">
   <meta name="twitter:description" content="GPT-powered trust scoring tool for wallets & devs. Built solo with $0. Try it now.">
 
-  <!-- Fonts + Styles -->
+  <!-- Fonts + CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e830e374fa1f414eac385723d44c17f5"}'></script>
-<!-- End Cloudflare Web Analytics -->
 
+  <!-- Cloudflare Web Analytics -->
+  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e830e374fa1f414eac385723d44c17f5"}'></script>
 </head>
 <body>
   <div class="container">
     <h1>BridgeBaseAI 🧠</h1>
-    <p>GPT-powered Web3 trust scanner. Paste a GitHub username or wallet address.</p>
+    <p>Enter a GitHub username or wallet address to get a trust score powered by GPT.</p>
 
     <input type="text" id="userInput" placeholder="e.g., vbuterin or 0x1234..." />
     <button onclick="generatePrompt()">Run Trust Scan</button>
 
     <div class="examples">
-      <p>Examples:</p>
+      <p>Try with:</p>
       <button onclick="setExample('vbuterin')">vbuterin</button>
       <button onclick="setExample('0x742d35Cc6634C0532925a3b844Bc454e4438f44e')">0x742d...</button>
     </div>
 
     <div class="output" id="output">
-      <strong>Trust Score:</strong> —<br />
-      <em>Paste into ChatGPT to generate your analysis.</em>
+      <div class="score-bar">
+        <div class="score-fill" id="scoreFill"></div>
+      </div>
+      <strong>Trust Score:</strong> <span id="trustValue">—</span><br />
+      <em id="gptMsg">Paste input and run GPT prompt to get analysis.</em>
     </div>
 
-    <div class="prompt" id="promptBox" style="margin-top:1rem;"></div>
+    <div class="prompt" id="promptBox" style="margin-top:1rem; font-size:0.85rem;"></div>
+    <button id="copyBtn" style="display:none" onclick="copyPrompt()">📋 Copy GPT Prompt</button>
 
     <footer>
-      Built with 💻 + ☕ by @huzaiii_founder • 100% open source • Feedback welcome
+      Built with $0, passion, and GPT by @huzaiii_founder ✊<br/>
+      Open source. Feedback welcome.
     </footer>
   </div>
 
   <!-- JS Logic -->
-  <script src="trustengine.js"></script>
-</body>
+ </body>
 </html>
